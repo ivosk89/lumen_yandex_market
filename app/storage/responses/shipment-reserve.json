@@ -1,0 +1,30 @@
+{
+    "status": "OK",
+    "result":
+    {
+        "total": 1,
+        "paging":
+        {
+            "nextPageToken": "aG9tZSwgaXQZcyBj"
+        },
+        "shipmentItems":
+        [
+            {
+                "id": "1223",
+                "orderId": "44732",
+                "shopSku": "iphone-6s-32gb-silver",
+                "itemName": "Смартфон Apple iPhone 6S 32GB серебристый",
+                "boxCount": 1,
+                "count": 10,
+                "status": "CREATED",
+                "estimatedPrice": 30000.00,
+                "draftDate": "2020-10-05T21:12:26+03:00",
+                "shipmentDate": "2020-10-06T09:00:00+03:00",
+                "barcodes":
+                [
+                    "2341dasfav23d"
+                ]
+            }
+        ]
+    }
+}

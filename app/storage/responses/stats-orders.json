@@ -1,0 +1,87 @@
+{
+    "status": "OK",
+    "result":
+    {
+        "orders":
+        [
+            {
+                "id": 1,
+                "creationDate": "2020-02-20",
+                "statusUpdateDate": "2020-02-20Т10:30:00",
+                "status": "DELIVERED",
+                "paymentType": "POSTPAID",
+                "deliveryRegion":
+                {
+                    "id": 213,
+                    "name": "Москва"
+                },
+                "items":
+                [
+                    {
+                        "offerName": "Iphone 6s 32gb",
+                        "marketSku": 100500900,
+                        "shopSku": "iphone-6s-32gb-silver",
+                        "count": 2,
+                        "prices":
+                        [
+                            {
+                                "type": "BUYER",
+                                "costPerItem": 150.20,
+                                "total": 300.40
+                            }
+                        ],
+                        "warehouse":
+                        {
+                            "id": 171,
+                            "name": "Яндекс.Маркет (Томилино)"
+                        },
+                        "details":
+                        [
+                            {
+                                "itemStatus": "REJECTED",
+                                "itemCount": 2,
+                                "updateDate": "2020-02-09"
+                            }
+                        ]
+                    }
+                ],
+                "initialItems":
+                [
+                    {
+                        "offerName": "Iphone 6s 32gb",
+                        "marketSku": 100500900,
+                        "shopSku": "iphone-6s-32gb-silver",
+                        "count": 3
+                    }
+                ],
+                "payments":
+                [
+                    {
+                        "id": "46234",
+                        "date": "2020-02-20",
+                        "type": "PAYMENT",
+                        "source": "BUYER",
+                        "total": 300.40,
+                        "paymentOrder":
+                        {
+                            "id": 99273,
+                            "date": "2020-02-20"
+                        }
+                    }
+                ],
+                "commissions":
+                [
+                    {
+                        "type": "AGENCY",
+                        "actual": 100.50,
+                        "predicted": 100.50
+                    }
+                ]
+            }
+        ],
+        "paging":
+        {
+            "nextPageToken": "XkiOjUzO"
+        }
+    }
+}

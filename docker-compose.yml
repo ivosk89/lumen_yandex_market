@@ -1,0 +1,27 @@
+version: '2'
+services:
+  app:
+    image: backend
+    restart: on-failure
+    command: bash -c "composer install && php-fpm"
+    build:
+      context: .
+      dockerfile: .docker/app/Dockerfile
+    volumes:
+      - ./app:/var/www/html
+    env_file:
+      - ./app/.env.local
+    ports:
+      - ${PHP_PORT}:9000
+
+  nginx:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    volumes_from:
+      - app
+    volumes:
+      - ./.docker/nginx/nginx.dev.conf:/etc/nginx/nginx.conf
+    ports:
+      - ${NGINX_PORT}:8081

@@ -1,0 +1,58 @@
+variables:
+  NAMESPACE: yandex-market
+  RELEASE_NAME: yandex-market
+  TAG: develop
+
+stages:
+  - test
+  - check
+
+test:unit:
+  stage: test
+  image: php:8.0.10-fpm
+  before_script:
+    - apt-get update
+    - apt-get install -y zip unzip wget
+    - cd app/
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
+    - mv composer.phar /usr/local/bin/composer
+  script:
+    - composer install
+  cache:
+    paths:
+      - app/vendor/
+  artifacts:
+    paths:
+      - app/vendor/
+      - app/clover.xml
+    reports:
+      junit: app/report.xml
+    expire_in: 1 day
+  retry:
+    max: 2
+    when:
+      - script_failure
+      - stuck_or_timeout_failure
+      - runner_system_failure
+  only:
+    - merge_requests
+    - branches
+
+phpcs:
+  stage: check
+  image: composer:latest
+  script:
+    - cd app/
+    - composer global require "squizlabs/php_codesniffer=*"
+    - $(composer global config bin-dir --absolute)/phpcs --standard=PSR12 app/ -p
+  retry:
+    max: 2
+    when:
+      - script_failure
+      - stuck_or_timeout_failure
+      - runner_system_failure
+  only:
+    - merge_requests
+    - branches

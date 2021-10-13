@@ -1,0 +1,10 @@
+{
+    "status": "ERROR",
+    "errors":
+    [
+        {
+            "code": "FORBIDDEN",
+            "message": "Нет доступа к магазину."
+        }
+    ]
+}

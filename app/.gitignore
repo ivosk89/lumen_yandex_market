@@ -1,0 +1,9 @@
+/vendor
+/.idea
+/.scribe
+Homestead.json
+Homestead.yaml
+.env
+.phpunit.result.cache
+.php_cs.cache
+.php_cs.dist
